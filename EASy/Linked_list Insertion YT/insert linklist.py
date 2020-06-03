@@ -67,6 +67,9 @@ class LinkedList:
             return 
         prev.next = cur_node.next
         cur_node = None
+    def swap_nodes(self, key_1, key_2):
+        if key_1 == key_2:
+            
 
 
 llist = LinkedList()

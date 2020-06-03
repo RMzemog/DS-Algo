@@ -61,12 +61,7 @@ class LinkedList:
         print(count)
     def removing_duplicates(self):
         cur_node = self.head
-        prev_node = None
-        while cur_node.next:
-            prev_node = cur_node
-            cur_node = cur_node.next
-            if prev_node.data == cur_node.data:
-                prev_node.next = cur_node.next
+         
     def swap_nodes(self,key_1, key_2):
         if key_1 == key_2:
             return
@@ -102,12 +97,11 @@ class LinkedList:
 llist = LinkedList()
 llist.append(1)
 llist.append(1)
+llist.append(1)
 llist.append(2)
-llist.append(2)
-llist.append(3)
 llist.append(3)
 llist.append(4)
-llist.removing_duplicates()
+#llist.removing_duplicates()
 #llist.swap_nodes(1,4)
 #llist.delete_node_postition(2)
 #llist.length_node()
