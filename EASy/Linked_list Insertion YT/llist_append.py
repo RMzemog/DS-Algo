@@ -91,7 +91,18 @@ class LinkedList:
             self.head = curr_1
 
         curr_1.next, curr_2.next = curr_2.next, curr_1.next
-
+    def list_reverse(self):    
+        curr = self.head
+        prev = None
+        nxt = None
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+# 1 -> 2 -> 3 -> 4 -> 5 -> 6 #
+        self.head = prev
+    
 
 
 llist = LinkedList()
@@ -101,8 +112,9 @@ llist.append(3)
 llist.append(4)
 llist.append(5)
 llist.append(6)
+llist.list_reverse()
 #llist.removing_duplicates()
-llist.swap_nodes(2,5)
+#llist.swap_nodes(2,5)
 #llist.delete_node_postition(2)
 #llist.length_node()
 llist.print_list()
