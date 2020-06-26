@@ -10,6 +10,20 @@ def done(s):
     
     return max_len
 
-
+#	if len(s)==0:
+#		return 0
+#	dict={}
+#	max_length=0
+ #   start=0
+  #  
+   # for i in range(len(s)):
+    #    if s[i] in dict and start<=dict[s[i]]:
+     #       start=dict[s[i]]+1
+      #      
+       # else:
+        #    max_length=max(max_length,i-start+1)
+            
+        #dict[s[i]]=i
+    #return max_length
 
 print(done("bbbbb"))
