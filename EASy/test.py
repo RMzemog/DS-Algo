@@ -179,68 +179,170 @@ class LinkedList:
             print(curr.data)
             curr = curr.next
 
-    def merge_sorted_list(self, llist):
-        p = self.head
-        q = llist.head
-        s = None
-        if not p:
-            return q
-        if not q: 
-            return p
-        if p and q:
-            if p.data <= q.data:
-                s = p
-                p = p.next
-            else:
-                s = q
-                q = s.next
-        new_head = s
-        while p and q:
-            if p.data <= q.data:
-                s.next = p
-                s = p
-                p = s.next
-            else:
-                s.next = q
-                s = q
-                q = s.next
-        if not p:
-            s.next = q
-        if not q:
-            s.next = p
-        return new_head
+#     def merge_sorted_list(self, llist):
+#         p = self.head
+#         q = llist.head
+#         s = None
+#         if not p:
+#             return q
+#         if not q: 
+#             return p
+#         if p and q:
+#             if p.data <= q.data:
+#                 s = p
+#                 p = p.next
+#             else:
+#                 s = q
+#                 q = s.next
+#         new_head = s
+#         while p and q:
+#             if p.data <= q.data:
+#                 s.next = p
+#                 s = p
+#                 p = s.next
+#             else:
+#                 s.next = q
+#                 s = q
+#                 q = s.next
+#         if not p:
+#             s.next = q
+#         if not q:
+#             s.next = p
+#         return new_head
 
+    def palindrome(self):
+        # curr = self.head
+        # prev = None
+        # pos = None
+        # while curr:
+        #     pos = curr.next
+        #     curr.next = prev
+        #     prev = curr
+        #     curr = pos
+        # self.head = prev
+        s = []
+        curr = self.head
+        while curr:
+            s.append(curr.data)
+            curr = curr.next
+        print(s)
+        print(s[::-1])
+        if s == s[::-1]:
+            print("True")
+        else:
+            print("False")
+##### wrong code it return string but we need linkelist as return type
+
+    def middle(self):
+        s =[]
+        curr = self.head 
+        while curr:
+            s.append(curr.data)
+            curr = curr.next
+        print(s[len(s)//2])
 llist1 = LinkedList()
-llist2 = LinkedList()
+# llist2 = LinkedList()
 llist1.append(1)
-llist1.append(5)
-llist1.append(7)
-llist1.append(9)
-llist1.append(10)
+llist1.append(2)
+llist1.append(4)
+llist1.middle()
+# llist1.palindrome()
+# llist1.print_list()
 
 
+# llist2.append(2)
+# llist2.append(3)
+# llist2.append(4)
+# llist2.append(6)
+# llist2.append(8)
 
-llist2.append(2)
-llist2.append(3)
-llist2.append(4)
-llist2.append(6)
-llist2.append(8)
+# llist1.merge_sorted_list(llist2)
 
-llist1.merge_sorted_list(llist2)
-
-llist1.print_list()
-
+# llist1.print_list()
 
 
+# def iso(s1, s2):
+#     d = {}
+#     for i in range(len(s1)):
+#         if s1[i] not in d:
+#             d[s1[i]] = s2[i]
+#         print(d[s1[i]])
+#         if s1[i] in d and d[s1[i]] != s2[i]:
+#             return False
+#     return True
+#     for key, value in d.items():
+#         print(key, value)
+
+# def test(s1, s2):
+#     return iso(s1,s2) and iso(s2,s1)
+
+# print(test('paper', 'title'))
+# print(test('bar','foo'))
+# #print(iso('egg', 'add'))
+# print(test('ab', 'aa'))
+
+def ugly(num):
+    if num <= 1:
+        return False
+    while num > 1:
+        print(num)
+        if num % 2 == 0:
+            num /= 2
+        elif num % 3 == 0:
+            num /= 3
+        elif num % 5 == 0:
+            num /= 5
+        else:
+            return False
+    return True
+
+# print(ugly(6))
+# print(ugly(7))
+# print(ugly(14))
+
+def pattern_test(s1, s2):
+    d = {}
+    if len(s1) != len(s2):
+        return False
+    for i in range(len(s1)):
+        if s1[i] not in d:
+            d[s1[i]] = s2[i]
+        if s1[i] in d and d[s1[i]] != s2[i]:
+            return False
+    return True
+def pattern(s1, s2):
+    return pattern_test(s2.split(" "), s1) and pattern_test(s1, s2.split(" "))
+
+# print(pattern('abba', 'dog cat cat fish'))
+# def trailing_zero(s):
+#     count = 0
+#     five = 5
+#     while s//five > 0:
+#         count += int(s/five)
+#         five *= 5
+#     print(five)
+#     return count
+# s = int(input("Enter the Number: "))
+# print(trailing_zero(s))
 
 
-
-
-
-
-
-
-
+def rev_vow(s):
+    k = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', "U"]
+    j = []
+    for i in range(len(s)):
+        if s[i] in k:
+            j.append(s[i])
+    j.reverse()
+    print(j)
+    c = 0
+    s = list(s)
+    for i in range(len(s)):
+        if s[i] in k:
+            s[i] = j[c]
+            c += 1
+    return "".join(s)
+# print(rev_vow('hello'))
+# print(rev_vow('leetcode'))
 
 
 

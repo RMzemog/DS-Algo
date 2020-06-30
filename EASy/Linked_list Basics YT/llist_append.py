@@ -103,6 +103,17 @@ class LinkedList:
 # 1 -> 2 -> 3 -> 4 -> 5 -> 6 #
         self.head = prev
     
+    def remove_duplicates(self):
+        cur = self.head
+        prev = None
+        dup_values = dict()
+        while cur:
+            if cur.data in dup_values:
+                prev.next = cur.next
+            elif cur.data not in dup_values:
+                dup_values[cur.data] = 1
+            prev = cur
+            cur = cur.next
 
 
 llist = LinkedList()
@@ -110,9 +121,12 @@ llist.append(1)
 llist.append(2)
 llist.append(3)
 llist.append(4)
+llist.append(2)
 llist.append(5)
+llist.append(1)
 llist.append(6)
-llist.list_reverse()
+llist.remove_duplicates()
+# llist.list_reverse()
 #llist.removing_duplicates()
 #llist.swap_nodes(2,5)
 #llist.delete_node_postition(2)
