@@ -245,7 +245,7 @@ llist1 = LinkedList()
 llist1.append(1)
 llist1.append(2)
 llist1.append(4)
-llist1.middle()
+#llist1.middle()
 # llist1.palindrome()
 # llist1.print_list()
 
@@ -344,6 +344,114 @@ def rev_vow(s):
 # print(rev_vow('hello'))
 # print(rev_vow('leetcode'))
 
+def rev(b):
+    #b = bin(int(b))[2:].zfill(32)
+    b = '{:032b}'.format(int(b))
+    print(b)
+
+#print(rev("11111111111111111111111111111101"))
+# '{:032b}'.format(100)
+from time import time
+
+def words(s):
+    init = time()
+    # s = s.strip()
+    # s = s.split()
+    # s = " ".join(s)
+    # s = s.split(' ')
+    # return " ".join(s[::-1])
+    s = " ".join((" ".join((s.split())).split(' ')[::-1]))
+    print(time()-init)
+    return s
+#print(words("a good   example"))
+
+
+def sol(s):
+    d = 0
+    e = 0
+    for i in s:
+        if i == 1:
+            d += 1
+        else:
+            e = max(d,e)
+            d = 0
+    e = max(d, e)
+    return e
+# print(sol([1,1,0,1,1,1]))
+# print(sol([0,0,0]))
 
 
 
+def arms(a):
+    l = len(str(a))
+    s = list(str(a))
+    total = 0
+    for i in s:
+        total += int(i)**l
+    if total == a:
+        return True
+    else:
+        return False       
+# print(arms(1634))
+
+
+def per(n):
+    i = 1
+    d = []
+    while i <= n//2:
+        if n % i == 0:
+            d.append(i)
+            print(i)
+        i += 1
+
+    if sum(d) == n:
+        return True
+    else:
+        return False
+    
+# print(per(8128))
+
+def pre(a):
+    b = []
+    j = 1
+    for i in a:
+        j = j * i
+        b.append(j)
+    return b
+
+# print(pre([3, 4, 1, 7, 9, 1]))
+
+def matrix():
+    R = int(input("Enter the number of rows:"))
+    C = int(input("Enter the number of cloumn"))
+    matrix = []
+    print("Enter the entries rowise: ")
+    for i in range(R):
+        a = []
+        for j in range(C):
+            a.append(int(input()))
+        matrix.append(a)
+    
+    for i in range(R):
+        for j in range(C):
+            print(matrix[i][j], end = " ")
+        print()
+#matrix()
+
+
+
+def mat():
+    R = int(input("Enter the number of rows:"))
+    C = int(input("Enter the number of columns"))
+    matrix = []
+    print("Enter the entries rowise")
+    for i in range(R):
+        a = []
+        for j in range(C):
+            a.append(int(input()))
+        matrix.append(a)
+    for i in range(R):
+        for j in range(C):
+            print(matrix[i][j], end = " ")
+        print()
+mat()
