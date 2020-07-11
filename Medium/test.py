@@ -34,16 +34,40 @@ def med(arr):
     for i in range(1, len(arr)):
         temp = current_max
         current_max = max(max(current_max * arr[i], current_min * arr[i]), arr[i])
-        print("MAX",current_max)
-        current_min = min(min(temp * arr[i], current_min*arr[i]),arr[i])
-        print('MIN', current_min)
+        current_mix = min(min(temp * arr[i], current_min*arr[i]),arr[i])
         if current_max > final_max:
-            print('FINAL', final_max)
             final_max = current_max
     return final_max
-print(med([2, -3, 4, -2, -1]))
+# print(med([-2,0,-1]))
 
 # def lcc(names):
 #     names.sort
-#     return names
-# print(lcc(['wano', 'wano(1)']))
+#     for i in range(1,(len(names))):
+#         if names[i]
+#      print(lcc(['wano', 'wano(1)']))
+
+
+def binary(arr, t):
+    start = 0
+    end = len(arr) - 1
+    while start <= end:
+        mid = (start+end)//2
+        if t == arr[mid]:
+            return mid
+        elif t < arr[mid]:
+            end = mid - 1
+        elif t > arr[mid]:
+            start = mid + 1
+
+# print(binary([1,2,3,5,7,8,9],2))
+
+
+def digital_root(n):
+    root = 0
+    for d in str(n):
+        root += int(d)
+    if len(str(root)) > 1:
+        root = digital_root(root)
+    return root   
+
+print(digital_root(999))

@@ -13,7 +13,7 @@
 
 
 #TIME LIMIT EXCEEDED FOR THIS CODE AND FOR TEST CASE
-def uniq(a):
+def uniq2(a):
     a = list(a)
     d = -1
     for i in a:
@@ -22,5 +22,14 @@ def uniq(a):
             return d
     return -1
 
-
-print(uniq('aa'))
+def uniq(a):
+    d = {}
+    for i in a:
+        if i in d:
+            d[i] += 1
+        else:
+            d[i] = 1
+    for i in range(len(a)):
+        if d[a[i]] == 1:
+            return i
+print(uniq('loveleetcode'))

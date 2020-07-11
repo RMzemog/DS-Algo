@@ -1,1 +1,1 @@
-llist1.palindrome()
+9

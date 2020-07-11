@@ -454,4 +454,41 @@ def mat():
         for j in range(C):
             print(matrix[i][j], end = " ")
         print()
-mat()
+# mat()
+
+#[1,4,9,10,23,3,1,0,20]
+# k = 4
+# Sum = 39
+
+def sliding_window_brute_force(arr, k):  
+    max_sum = 0
+    for i in range(len(arr) - k + 1):
+        current_sum = 0
+        for j in range(k):
+            current_sum += arr[i+j]
+        max_sum = max(current_sum, max_sum)
+    return max_sum
+
+def sliding_window(arr,k):
+    max_sum = 0
+    window = sum(arr[:k])
+    for i in range(len(arr)-k):
+        window = window-arr[i]+arr[i+k]
+        max_sum = max(window, max_sum)
+    return max_sum
+     
+
+
+print(sliding_window([1,4,2,10,29,3,1,0,20],4))
+
+#[1,3,5,4,7]
+def lc(arr):
+    current = 0
+    index = 0
+    for i in range(len(arr)):
+        if i > 0 and arr[i] < arr[i-1]:
+            index = i
+        current = max(current, i - index + 1) 
+    return current
+
+# print(lc([1,3,5,4,7]))
