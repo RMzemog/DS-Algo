@@ -70,4 +70,34 @@ def digital_root(n):
         root = digital_root(root)
     return root   
 
-print(digital_root(999))
+# print(digital_root(999))
+
+
+def word_break(s, wordDict):
+    print(s)
+    wordDict.sort(key=len)
+    print(wordDict)
+    for i in wordDict:
+        if i in s:
+            s =  s.replace(i, "")
+    print(s)
+    if s == "":
+        return True
+    return False
+
+# print(word_break("aaaaaaa",["aaaa","aaa"]))
+
+
+def asd(arr):
+    lis = [i//i for i in arr]
+    for i in range(len(arr)):
+        for j in range(i):
+            if (arr[i] >arr[j] and lis[i] <= lis[j]):
+                lis[i] = 1+lis[j]
+    print(lis)
+    print(arr)
+    lis.sort()
+    return lis[-1]
+
+print(asd([10,9,2,5,3,7,101,18]))
+print(asd([5,8,7,1,9]))    
