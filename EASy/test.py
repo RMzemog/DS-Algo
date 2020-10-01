@@ -479,7 +479,7 @@ def sliding_window(arr,k):
      
 
 
-print(sliding_window([1,4,2,10,29,3,1,0,20],4))
+# print(sliding_window([1,4,2,10,29,3,1,0,20],4))
 
 #[1,3,5,4,7]
 def lc(arr):
@@ -492,3 +492,31 @@ def lc(arr):
     return current
 
 # print(lc([1,3,5,4,7]))
+x = int(input())
+d = [[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[100,2,3,4,5]]
+e = d
+for i in range(x):
+    dd = list(map(int, input().split()))
+    d.append(dd)
+
+ddd = max(d[-1])
+ii = d[-1].index(ddd)
+print(ii)
+print(ddd)
+d.reverse()
+print(d)
+final = ddd
+for i in range(1,len(d)):
+    maxa = 0
+    for j in range(i+1):
+
+        one = 0
+        two = 0
+        if j-1 == ii-1:
+            one += d[i][j]
+        elif j == ii+1:
+            two += d[i][j]
+    maxa = max(one, two)
+    ii = d[i].index(maxa)
+    final += maxa
+print(final)

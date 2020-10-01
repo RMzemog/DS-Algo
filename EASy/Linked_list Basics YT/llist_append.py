@@ -60,7 +60,13 @@ class LinkedList:
             count += 1
         print(count)
     def removing_duplicates(self):
-        cur_node = self.head
+        cur = head
+        while cur and cur.next:
+            if cur.val == cur.next.val:
+                cur.next = cur.next.next
+            else:
+                cur = cur.next
+            
          
     def swap_nodes(self,key_1, key_2):
         if key_1 == key_2:

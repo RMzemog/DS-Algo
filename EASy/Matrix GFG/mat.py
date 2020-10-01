@@ -25,4 +25,19 @@ def add():
             c[i][j] = a[i][j] + b[i][j]
     print(c)
 
-add()
+#add()
+
+def asd():
+    R = int(input("Enter Number of Rows: "))
+    C = int(input("Enter Number of Columns:"))
+    matrix = []
+    for i in range(R):
+        a = []
+        for j in range(C):
+            a.append(int(input()))
+        matrix.append(a)
+    for i in range(R):
+        for j in range(C):
+            print(matrix[i][j], end= " ")
+        print()
+asd()

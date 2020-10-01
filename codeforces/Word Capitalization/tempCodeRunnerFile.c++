@@ -1,0 +1,1 @@
+    // cout << putchar(toupper(s[0]));

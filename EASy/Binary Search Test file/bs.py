@@ -1,27 +1,27 @@
-def binary_search(arr, target):
-    start = 0
-    end = len(arr) - 1
-    while start <= end:
-        mid = (start + end)//2
-        #if target == arr[mid]:
-        #    print(arr[mid])
-        #    return 'Found'
-        if target > arr[mid]:
-            print('smaller', arr[mid])
-            start = mid + 1
-        elif target < arr[mid]:
-            print("Greater", arr[mid])
-            end = mid - 1
-        else:
-            if mid - 1 < 0:
-                return mid
-            if arr[mid -1 ] != target:
-                return mid 
-            end = mid -1
+# def binary_search(arr, target):
+#     start = 0
+#     end = len(arr) - 1
+#     while start <= end:
+#         mid = (start + end)//2
+#         #if target == arr[mid]:
+#         #    print(arr[mid])
+#         #    return 'Found'
+#         if target > arr[mid]:
+#             print('smaller', arr[mid])
+#             start = mid + 1
+#         elif target < arr[mid]:
+#             print("Greater", arr[mid])
+#             end = mid - 1
+#         else:
+#             if mid - 1 < 0:
+#                 return mid
+#             if arr[mid -1 ] != target:
+#                 return mid 
+#             end = mid -1
             
-    return "Not Found"
+#     return "Not Found"
 
-print(binary_search([2,3,3,3,4,5,6], 3))
+# print(binary_search([2,3,3,3,4,5,6], 3))
 
 
 # def test(arr, target):
@@ -52,3 +52,22 @@ print(binary_search([2,3,3,3,4,5,6], 3))
 #     print(foun)
 # test([1,2,4,5,6,6,6,6,7], 6)
 # test2([1,2,4,5,6,6,6,6,7], 6)
+
+
+def bs():
+    arr = [1,2,3,4,5,6]
+    t = 89
+    start = 0
+    end = len(arr)-1
+    while start <= end:
+        mid = (start+end)//2
+        if t > arr[mid]:
+            start = mid+1
+        elif t < arr[mid]:
+            end = mid-1
+        else:
+            if arr[mid] == t:
+                return "found"
+    return 'Not Found'
+
+print(bs())
