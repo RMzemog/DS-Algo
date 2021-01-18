@@ -1,4 +1,5 @@
 #include<iostream>
+#include<queue>
 using namespace std;
 
 
@@ -8,6 +9,18 @@ struct node{
     node* right;
 };
 
+void levelorder(node* root){
+    if (root == NULL) return;
+    queue<node*> q;
+    q.push(root);
+    while(!q.empty()){
+        node* current = q.front();
+        cout << current->data<<" ";
+        if(current -> left != NULL) q.push(current -> left);
+        if (current -> right != NULL) q.push(current -> right);
+        q.pop();
+    }
+}
 
 void inorder(node* root){
     if (root == NULL){
@@ -52,6 +65,30 @@ node* insert(node* root, int data){
     }
     return root;
 }
+node* insertt(node * root, int value){
+    node* newnode = new node();
+    newnode -> data = value;
+    if (root == NULL){
+        return newnode;
+    }
+    node * khoj = root;
+    while(true){
+        if (value < khoj -> data){
+            if (khoj -> left == NULL){
+                khoj -> left = newnode;
+                break;
+            }
+            khoj = khoj -> left;
+        }else{
+            if (khoj -> right == NULL){
+                khoj -> right = newnode;
+                break;
+            }
+            khoj = khoj -> right;
+        }
+    }
+    return root;
+}
 
 bool search(node* root, int data){
     if (root == NULL){
@@ -71,6 +108,8 @@ root = insert(root, 15);
 root = insert(root, 10);
 root = insert(root, 20);
 root = insert(root, 12);
+root = insert(root, 13);
+root = insert(root, 14);
 cout << "Inorder Traversal :";
 inorder(root);
 cout << endl;
@@ -80,10 +119,18 @@ cout <<endl;
 cout <<"Preoder Traversal : ";
 preorder(root);
 cout <<endl;
-cout <<"Enter the Number you want to Search : ";
-int nn;
-cin >> nn;
-if (search(root, nn) == true){
-    cout << "Found";
-}else{cout << "Not Found";}
+cout <<"Levelorder Traversal : ";
+levelorder(root);
+cout <<endl;
+cout <<"Enter the Number you want to Insert in the paad : ";
+int paad;
+cin >> paad;
+insertt(root , paad);
+inorder(root);
+// cout <<"Enter the Number you want to Search : ";
+// int nn;
+// cin >> nn;
+// if (search(root, nn) == true){
+//     cout << "Found";
+// }else{cout << "Not Found";}
 }
