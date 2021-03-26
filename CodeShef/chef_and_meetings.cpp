@@ -5,32 +5,29 @@ int main(){
     int test;
     cin >> test;
     while(test--){
-        int time1;
-        char colon;
-        int time2;
-        string ampm;
-        cin >> time1 >> colon >> time2 >> ampm ;
+        string a;
+        string b;
+        cin >> a; 
+        cin >> b;
+        int e = stoi(a.substr(0,2));
+        double f = stoi(a.substr(3,5))/100.00;
         double target = 0;
-        // cout << "hour = "<< time1 << endl;
-        // cout <<"colon ="<<colon << endl;
-        // cout <<"min = "<< time2 << endl;
-        // cout <<"AmPm = "<<ampm;
-        if (ampm == "AM"){
-            float time22 = time2;
-            if (time1 == 12){
-                target += 0 + (time22/100);
+        if (b == "AM"){
+            if (e == 12){
+                target += 0 + f;
             }else{
-            target += time1 + (time22/100);
+                target += e + f;
             }
         }else{
-            float time22 = time2;
-            target += 12 +(time1 + (time22/100));
-            if (time1 == 12){
-                target -= 12;
+            if (e == 12){
+                target += e + f;
+            }else{
+                target += 12 + (e + f);
             }
         }
         // cout << target<<endl;
         int n = 0;
+        cout << target <<endl;
         cin >> n;
         string ans = "";
         while(n--){
@@ -57,7 +54,7 @@ int main(){
             double start = 0;
             double end = 0;
             if (s2 == "AM"){
-                if (t1 = 12){
+                if (t1 == 12){
                     start = 0 + t2;
                 }else{
                 start += t1 + t2;
@@ -80,8 +77,8 @@ int main(){
                     end -= 12;
                 }
             }
-            // cout << start << endl;
-            // cout << end << endl;
+            cout << start << endl;
+            cout << end << endl;
             if (target >= start && target <= end){
                 ans += '1';
             }else{

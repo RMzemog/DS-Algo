@@ -1,1 +1,1 @@
-isk)/b)+ math.ceil(len(nrisk/b)))
+print(arr)
