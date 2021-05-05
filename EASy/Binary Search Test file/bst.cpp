@@ -126,7 +126,7 @@ cout <<"Enter the Number you want to Insert in the paad : ";
 int paad;
 cin >> paad;
 insertt(root , paad);
-inorder(root);
+levelorder(root);
 // cout <<"Enter the Number you want to Search : ";
 // int nn;
 // cin >> nn;

@@ -99,5 +99,18 @@ def asd(arr):
     lis.sort()
     return lis[-1]
 
-print(asd([10,9,2,5,3,7,101,18]))
-print(asd([5,8,7,1,9]))    
+# print(asd([10,9,2,5,3,7,101,18]))
+# print(asd([5,8,7,1,9]))    
+
+class Book(pages,prices,author,Id,title):
+    def __init__(self):
+        self.pages  = pages 
+        self.price=price
+        self.author= author
+        self.Id=Id 
+        self.title=title
+    
+class BookStore(bookStoreName,BookList):
+    def __init__(self):
+        
+
