@@ -52,7 +52,7 @@ struct node* search(struct node* root, int key){
 
 int height(node * root){
     if (root == NULL){
-        return -1;
+        return 0;
     }else{
     int leftt = height(root -> left);
     int rightt = height(root -> right);
