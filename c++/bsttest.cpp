@@ -64,6 +64,54 @@ void LevelOrder(node *root){
         Q.pop();
     }
 }
+
+void LeftView(node *root){
+    if(root == NULL){
+        return;
+    }
+   queue<node*>q;
+   q.push(root);
+   while(!q.empty()){
+       int n = q.size();
+       for(int i = 1; i <=n; i++){
+           node * temp = q.front();
+           q.pop();
+           if(i == 1){
+               cout << temp -> data <<" ";
+           }
+           if(temp -> left != NULL){
+               q.push(temp -> left);
+           }
+           if(temp -> right != NULL){
+               q.push(temp -> right);
+           }
+       }
+   } 
+}
+
+void right_view(node* root){
+    if(root == NULL){
+        return;
+    }
+    queue<node*>q;
+    q.push(root);
+    while(!q.empty()){
+        int n = q.size();
+        for(int i = 1; i <= n; i++){
+            node * temp = q.front();
+            q.pop();
+            if(i==n){
+                cout << temp -> data<<" ";
+            }
+            if(temp -> left != NULL){
+                q.push(temp -> left);
+            }
+            if(temp -> right != NULL){
+                q.push(temp -> right);
+            }
+        }
+    }
+}
 void reverseLevelOrder(node* root){
     stack<node*>S;
     queue<node*>Q;
@@ -119,7 +167,6 @@ void mirror(node* root){
     root -> right = temp;
 }
 
-
 int main(){
     node* root = NULL;
     vector<int>arr = {25,15,10,4,12,22,18,24,50,35,31,44,70,66,90};
@@ -144,5 +191,8 @@ int main(){
     // mirror(root);
     // cout <<"Inorder Traversal :";
     // inorder(root);
-    cout << endl<<"Vertical order of the tree is :";
+    cout << endl<<"Left view of the tree is :";
+    LeftView(root);
+    cout << endl<<"Right View of the tree is :";
+    right_view(root);
 }

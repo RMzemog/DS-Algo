@@ -1,26 +1,32 @@
-#include<vector>
 #include<iostream>
-#include<bits/stdc++.h>
 using namespace std;
 int main(){
-    string s;
-    cin >> s;
-           vector<int>ans(256,-1);
-           for(int i = 0; i < ans.size(); i++){
-               cout << ans[i] <<" ";
-           }
-           cout << endl;
-        int maximum=0,Li=-1;
-        for(int i=0;i<s.length();i++){
-            if(ans[s[i]]>Li){
-                cout << ans[s[i]]<<"    "<<s[i]<<endl;
-                Li = ans[s[i]];
+    int test;
+    cin >> test;
+    while(test--){
+        int n; 
+        cin >> n;
+        int three = 0;
+        int five = 0;
+        while( n > 2){
+            if ( n % 3 == 0){
+                three = n / 3;
+                n = 0;
+                break;
+            }else if (n >= 5){
+                n -= 5;
+                five++;
             }
-            ans[s[i]]=i;
-            maximum = max(maximum,i-Li);
         }
-           for(int i = 0; i < ans.size(); i++){
-               cout << ans[i] <<" ";
-           }
-        cout << maximum;
+        if (n != 0){
+            cout <<-1<<endl;
+        }else{
+            for(int i = 0; i<three * 3; i++){
+                cout <<"5";
+            }for(int i = 0; i<five * 5; i++){
+                cout<<"3";
+            }
+            cout <<endl;
+        }
+    }
 }

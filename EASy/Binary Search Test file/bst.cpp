@@ -48,6 +48,7 @@ void preorder(node* root){
     preorder(root -> left);
     preorder(root -> right);
 }
+
 node* create(int data){
     node* newNode = new node();
     newNode -> data = data;
@@ -65,6 +66,7 @@ node* insert(node* root, int data){
     }
     return root;
 }
+
 node* insertt(node * root, int value){
     node* newnode = new node();
     newnode -> data = value;
