@@ -5,24 +5,24 @@ using namespace std;
 
 int minjumps(int arr[], int n){
     int dp[n];
-    dp[0] = 0;
-    for(int i = 1; i < n; i++){
-        dp[i] = INT_MAX;
-    }
-    for(int i = 1; i < n; i++){
-        for(int j = 0; j < i; j++){
-            if(arr[j] + j >= i){
-                if(dp[j] != INT_MAX){
-                    dp[i] = min(dp[i],dp[j]+1);
-                }
+    dp[n-1] = 0;
+    for(int i = n - 2; i >= 0; i--){
+        int steps = arr[i];
+        int maxa = INT_MAX;
+        for(int j = 1; j <= steps && i + j < n; j++){
+            if(dp[i+j] != INT_MAX && dp[i + j]<maxa){
+                maxa = dp[i+j];
             }
+        }
+        if(maxa != INT_MAX){
+            dp[i] = maxa + 1;
         }
     }
     for(auto it: dp){
         cout<<it<<" ";
     }
     cout<<endl;
-    return dp[n-1];
+    return dp[0];
 }
 
 

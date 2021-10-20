@@ -18,6 +18,6 @@ int maxcuts(int n, int a, int b, int c){
 
 
 int main(){
-    int n = 5, a = 1, b = 2, c = 3;
+    int n = 5, a = 4, b = 2, c = 4;
     cout<<maxcuts(n,a,b,c);
 }

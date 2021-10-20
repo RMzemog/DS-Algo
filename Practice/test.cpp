@@ -1,21 +1,18 @@
-#include<iostream>
 #include<bits/stdc++.h>
-#include<math.h>
+#include<vector>
 using namespace std;
 int main(){
-    int value = 10;
-    int n = 4;
-    int coins[] = {2,5,3,6};
-    int dp[value+1];
-    dp[0] = 1;
-    for(int i = 0; i < n; i++){
-        for(int j = coins[i]; j <= value; j++){
-            if(dp[j - coins[i]]){
-                dp[j] += dp[j - coins[i]];
-            }
+    int nums[] = {1,3,5,6};
+    int target = 5;
+    int low = 0;
+    int high = 3;
+    while(low <= high){
+        int mid = low + (high - low)/2;
+        if (target > nums[mid]){
+            low = mid+1;
+        }else{
+            high = mid-1;
         }
     }
-    for(auto it: dp){
-        cout<< it<<" ";
-    }
+    cout<<low;
 }

@@ -5,7 +5,7 @@
 using namespace std;
 int main(){
     int val = 5;
-    int coins[] = {3,4,1};
+    int coins[] = {6,6,6};
     int dp[val+1];
     int n = 3;
     dp[0] = 0;

@@ -1,10 +1,11 @@
 #include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int main(){
     string s1;
     cin >> s1;
-    string s2;
-    cin >> s2;
+    string s2 = s1;
+    reverse(s2.begin(), s2.end());
     int one = s1.size();
     int two = s2.size();
     int arr[one+1][two+1];
